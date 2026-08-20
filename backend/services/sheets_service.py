@@ -4,7 +4,7 @@ import uuid
 from datetime import datetime
 from google.oauth2.service_account import Credentials
 from googleapiclient.discovery import build
-from data.questions import ad_campaigns
+from backend.data.questions import ad_campaigns
 
 SCOPES = ['https://www.googleapis.com/auth/spreadsheets']
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))

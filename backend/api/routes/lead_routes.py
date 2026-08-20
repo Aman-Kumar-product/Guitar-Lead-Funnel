@@ -1,9 +1,9 @@
 from fastapi import APIRouter, HTTPException, Request
-from models.lead import ScoreRequest, LeadEmailRequest, BookingRequest, SendResultRequest
-from services.scoring_service import calculate_score
-from services.result_service import generate_result
-from services.sheets_service import append_lead, update_lead
-from api.limiter import limiter
+from backend.models.lead import ScoreRequest, LeadEmailRequest, BookingRequest, SendResultRequest
+from backend.services.scoring_service import calculate_score
+from backend.services.result_service import generate_result
+from backend.services.sheets_service import append_lead, update_lead
+from backend.api.limiter import limiter
 
 router = APIRouter()
 
@@ -33,7 +33,7 @@ async def calculate_initial_score(request: Request, submission: ScoreRequest):
 @limiter.limit("10/minute")
 async def fetch_lead(request: Request, lead_id: str):
     try:
-        from services.sheets_service import get_lead
+        from backend.services.sheets_service import get_lead
         lead = get_lead(lead_id)
         if not lead:
             raise HTTPException(status_code=404, detail="Lead not found")
@@ -84,8 +84,8 @@ async def submit_email_lead(request: Request, submission: LeadEmailRequest):
         frontend_url = os.getenv("FRONTEND_URL", "http://localhost:5173").rstrip("/")
         booking_link = f"{frontend_url}/book?lead_id={lead_id}&email={submission.email}"
 
-        from services.email_service import send_result_email
-        from services.sheets_service import check_if_email_booked
+        from backend.services.email_service import send_result_email
+        from backend.services.sheets_service import check_if_email_booked
         
         is_qualified = score_details.get("is_qualified", False)
         already_booked = False
@@ -126,8 +126,8 @@ async def submit_email_lead(request: Request, submission: LeadEmailRequest):
 @limiter.limit("5/minute")
 async def submit_send_results_only(request: Request, submission: SendResultRequest):
     try:
-        from services.sheets_service import get_lead, update_email_sent_status, update_lead
-        from services.result_service import generate_result
+        from backend.services.sheets_service import get_lead, update_email_sent_status, update_lead
+        from backend.services.result_service import generate_result
         import json
         
         lead = get_lead(submission.lead_id)
@@ -168,7 +168,7 @@ async def submit_send_results_only(request: Request, submission: SendResultReque
         frontend_url = os.getenv("FRONTEND_URL", "http://localhost:5173").rstrip("/")
         booking_link = f"{frontend_url}/book?lead_id={submission.lead_id}&email={submission.email}"
         
-        from services.email_service import send_result_email
+        from backend.services.email_service import send_result_email
         email_sent = send_result_email(
             to_email=str(submission.email), 
             result_title=result_data["title"], 

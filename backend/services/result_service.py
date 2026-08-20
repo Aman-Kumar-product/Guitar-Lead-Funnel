@@ -1,5 +1,5 @@
 # Define the actual content for the 12 result archetypes based on results.md
-from data.songs_pool import SONG_TYPES
+from backend.data.songs_pool import SONG_TYPES
 
 RESULTS_DATA = {
     "1": {

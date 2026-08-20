@@ -1,11 +1,11 @@
 from fastapi import APIRouter, HTTPException, Request
 from fastapi.responses import JSONResponse
 from pydantic import ValidationError
-from models.lead import BookingRequest
-from services.calendar_service import get_available_slots, create_booking
-from services.sheets_service import update_lead
-from services.email_service import send_booking_confirmation_email
-from api.limiter import limiter
+from backend.models.lead import BookingRequest
+from backend.services.calendar_service import get_available_slots, create_booking
+from backend.services.sheets_service import update_lead
+from backend.services.email_service import send_booking_confirmation_email
+from backend.api.limiter import limiter
 
 router = APIRouter()
 
@@ -55,9 +55,9 @@ async def submit_booking(request: Request, submission: BookingRequest):
             print(f"Warning: Failed to send booking confirmation email to {submission.email}")
             
         # --- NEW LOGIC: Send delayed result email for hot leads ---
-        from services.sheets_service import get_lead, update_email_sent_status
+        from backend.services.sheets_service import get_lead, update_email_sent_status
         import json
-        from services.result_service import generate_result
+        from backend.services.result_service import generate_result
         import os
         
         lead = get_lead(submission.lead_id)
@@ -88,7 +88,7 @@ async def submit_booking(request: Request, submission: BookingRequest):
                     else:
                         attachment_path = os.path.join(base_dir, "assets", "roadmaps", "Intermediate_Roadmap.pdf")
                     
-                    from services.email_service import send_result_email
+                    from backend.services.email_service import send_result_email
                     
                     booking_link = f"http://localhost:5173/book?lead_id={submission.lead_id}&email={submission.email}"
                     result_email_sent = send_result_email(

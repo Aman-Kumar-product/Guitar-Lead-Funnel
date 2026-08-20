@@ -7,12 +7,12 @@ from slowapi.errors import RateLimitExceeded
 import logging
 
 # Import routes
-from api.routes import lead_routes
+from backend.api.routes import lead_routes
 
 # Load environment variables from .env file
 load_dotenv(override=True)
 
-from api.limiter import limiter
+from backend.api.limiter import limiter
 
 app = FastAPI(
     title="Guitar Lead Funnel API",
@@ -42,7 +42,7 @@ app.add_middleware(
 
 # Include Routers
 app.include_router(lead_routes.router, prefix="/api")
-from api.routes import booking_routes
+from backend.api.routes import booking_routes
 app.include_router(booking_routes.router, prefix="/api")
 
 @app.get("/")

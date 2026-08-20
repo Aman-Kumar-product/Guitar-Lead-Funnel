@@ -1,4 +1,4 @@
-from models.lead import ScoreRequest
+from backend.models.lead import ScoreRequest
 import json
 
 payload = {
@@ -13,7 +13,7 @@ try:
 except Exception as e:
     print("ScoreRequest Error:", e)
 
-from models.lead import LeadEmailRequest
+from backend.models.lead import LeadEmailRequest
 payload2 = {
     "campaign_source": "ad_1",
     "email": "test@gmail.com",

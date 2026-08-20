@@ -7,7 +7,7 @@ sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '../../b
 from dotenv import load_dotenv
 load_dotenv(override=True, dotenv_path=".env")
 
-from services.calendar_service import get_available_slots
+from backend.services.calendar_service import get_available_slots
 
 try:
     print("Testing Google Calendar Integration...")
