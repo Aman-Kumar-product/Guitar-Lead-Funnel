@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Guitar Academy - Assessment Step 2</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;700&amp;family=Montserrat:wght@700;900&amp;family=Space+Grotesk:wght@700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "tertiary": "#e4f8f2",
+                        "surface-container-high": "#252b2a",
+                        "surface-variant": "#303635",
+                        "on-secondary-fixed-variant": "#633f00",
+                        "on-background": "#dee4e1",
+                        "surface-container-low": "#171d1c",
+                        "secondary-fixed": "#ffddb5",
+                        "secondary-fixed-dim": "#ffb956",
+                        "on-secondary-fixed": "#2a1800",
+                        "on-primary": "#003921",
+                        "error": "#ffb4ab",
+                        "on-surface": "#dee4e1",
+                        "surface": "#0f1513",
+                        "secondary": "#ffb956",
+                        "on-secondary": "#452b00",
+                        "outline-variant": "#3b4a40",
+                        "on-error": "#690005",
+                        "on-tertiary-fixed": "#0e1f1c",
+                        "primary-fixed-dim": "#00e293",
+                        "outline": "#849588",
+                        "on-tertiary-fixed-variant": "#394a46",
+                        "surface-container-lowest": "#090f0e",
+                        "secondary-container": "#c58311",
+                        "on-primary-container": "#006b43",
+                        "on-surface-variant": "#b9cbbd",
+                        "inverse-primary": "#006c44",
+                        "primary-container": "#00f5a0",
+                        "on-error-container": "#ffdad6",
+                        "on-secondary-container": "#3d2500",
+                        "background": "#0f1513",
+                        "tertiary-fixed": "#d3e7e1",
+                        "on-tertiary": "#233430",
+                        "surface-container": "#1b2120",
+                        "tertiary-fixed-dim": "#b7cbc5",
+                        "on-primary-fixed-variant": "#005232",
+                        "tertiary-container": "#c8dbd6",
+                        "on-primary-fixed": "#002111",
+                        "primary-fixed": "#50ffaf",
+                        "surface-container-highest": "#303635",
+                        "surface-dim": "#0f1513",
+                        "inverse-on-surface": "#2b3230",
+                        "error-container": "#93000a",
+                        "primary": "#cdffde",
+                        "inverse-surface": "#dee4e1",
+                        "on-tertiary-container": "#4f615d",
+                        "surface-bright": "#343a39",
+                        "surface-tint": "#00e293"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "gutter": "24px",
+                        "container-padding-desktop": "48px",
+                        "container-padding-mobile": "20px",
+                        "section-gap": "80px",
+                        "unit": "8px"
+                    },
+                    "fontFamily": {
+                        "body-md": ["Be Vietnam Pro"],
+                        "display-lg": ["Montserrat"],
+                        "body-lg": ["Be Vietnam Pro"],
+                        "label-caps": ["Space Grotesk"],
+                        "headline-sm": ["Montserrat"],
+                        "display-lg-mobile": ["Montserrat"],
+                        "headline-md": ["Montserrat"]
+                    },
+                    "fontSize": {
+                        "body-md": ["16px", { "lineHeight": "1.6", "fontWeight": "400" }],
+                        "display-lg": ["64px", { "lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "900" }],
+                        "body-lg": ["18px", { "lineHeight": "1.6", "fontWeight": "400" }],
+                        "label-caps": ["12px", { "lineHeight": "1", "letterSpacing": "0.1em", "fontWeight": "700" }],
+                        "headline-sm": ["24px", { "lineHeight": "1.4", "fontWeight": "700" }],
+                        "display-lg-mobile": ["36px", { "lineHeight": "1.2", "fontWeight": "900" }],
+                        "headline-md": ["32px", { "lineHeight": "1.3", "fontWeight": "700" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .bloom-shadow-primary {
+            box-shadow: 0 0 20px -5px theme('colors.primary-container');
+        }
+        .bloom-shadow-secondary:hover {
+            box-shadow: 0 0 15px -2px theme('colors.secondary');
+        }
+        .glass-card {
+            background: linear-gradient(180deg, rgba(27, 33, 32, 0.8) 0%, rgba(15, 21, 19, 0.9) 100%);
+            backdrop-filter: blur(12px);
+        }
+        .ambient-glow {
+            background: radial-gradient(circle at center, rgba(0, 226, 147, 0.05) 0%, rgba(15, 21, 19, 0) 70%);
+        }
+        /* Custom scrollbar for webkit */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: theme('colors.surface'); }
+        ::-webkit-scrollbar-thumb { background: theme('colors.surface-variant'); border-radius: 4px; }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface text-on-surface font-body-md text-body-md min-h-screen flex flex-col relative overflow-x-hidden selection:bg-primary-container selection:text-on-primary-container">
+<div class="fixed inset-0 pointer-events-none ambient-glow z-0"></div>
+<div class="fixed top-0 left-0 w-full h-[2px] bg-surface-container-highest z-50">
+<div class="h-full bg-primary-container w-1/3 shadow-[0_0_10px_theme('colors.primary-container')] transition-all duration-700 ease-in-out relative">
+<div class="absolute right-0 top-1/2 -translate-y-1/2 w-4 h-4 bg-primary rounded-full blur-[4px]"></div>
+</div>
+</div>
+<header class="w-full flex items-center justify-between px-container-padding-mobile md:px-container-padding-desktop py-6 relative z-10">
+<button class="text-on-surface-variant hover:text-primary transition-colors p-2 -ml-2 rounded-full hover:bg-surface-container flex items-center justify-center">
+<span class="material-symbols-outlined text-[24px]">close</span>
+</button>
+<div class="flex items-center gap-2">
+<span class="font-label-caps text-label-caps text-primary-container tracking-widest">STEP 02</span>
+<span class="font-label-caps text-label-caps text-outline-variant">/ 06</span>
+</div>
+<div class="w-10"></div>
+</header>
+<main class="flex-1 flex flex-col items-center justify-center px-container-padding-mobile md:px-container-padding-desktop py-12 relative z-10">
+<div class="w-full max-w-4xl mx-auto flex flex-col items-center">
+<h1 class="font-display-lg-mobile text-display-lg-mobile md:font-display-lg md:text-display-lg text-center mb-16 max-w-3xl leading-tight">
+                What can you <br class="hidden md:block"/><span class="text-transparent bg-clip-text bg-gradient-to-r from-primary-container to-primary">currently play?</span>
+</h1>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 w-full">
+<label class="group relative cursor-pointer block h-full">
+<input class="peer sr-only" name="experience" type="radio" value="nothing"/>
+<div class="glass-card h-full rounded-xl border border-outline-variant/30 p-8 flex flex-col items-center justify-center gap-6 transition-all duration-300 peer-checked:border-primary-container peer-checked:bg-surface-container-highest/80 peer-checked:shadow-[inset_0_0_40px_rgba(0,245,160,0.05),0_0_20px_rgba(0,245,160,0.1)] hover:border-outline relative overflow-hidden">
+<div class="absolute top-0 inset-x-0 h-[1px] bg-gradient-to-r from-transparent via-white/10 to-transparent"></div>
+<div class="w-16 h-16 rounded-full bg-surface-container flex items-center justify-center group-hover:scale-110 transition-transform duration-500 peer-checked:bg-primary-container/20 peer-checked:text-primary-container text-on-surface-variant">
+<span class="material-symbols-outlined text-[32px] transition-colors" style="font-variation-settings: 'FILL' 0;">not_started</span>
+</div>
+<span class="font-headline-sm text-headline-sm text-center text-on-surface group-hover:text-inverse-surface transition-colors">Nothing yet</span>
+<div class="absolute top-4 right-4 opacity-0 peer-checked:opacity-100 transition-opacity text-primary-container">
+<span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+</div>
+</div>
+</label>
+<label class="group relative cursor-pointer block h-full">
+<input class="peer sr-only" name="experience" type="radio" value="few_chords"/>
+<div class="glass-card h-full rounded-xl border border-outline-variant/30 p-8 flex flex-col items-center justify-center gap-6 transition-all duration-300 peer-checked:border-primary-container peer-checked:bg-surface-container-highest/80 peer-checked:shadow-[inset_0_0_40px_rgba(0,245,160,0.05),0_0_20px_rgba(0,245,160,0.1)] hover:border-outline relative overflow-hidden">
+<div class="absolute top-0 inset-x-0 h-[1px] bg-gradient-to-r from-transparent via-white/10 to-transparent"></div>
+<div class="w-16 h-16 rounded-full bg-surface-container flex items-center justify-center group-hover:scale-110 transition-transform duration-500 peer-checked:bg-primary-container/20 peer-checked:text-primary-container text-on-surface-variant">
+<span class="material-symbols-outlined text-[32px] transition-colors" style="font-variation-settings: 'FILL' 0;">music_note</span>
+</div>
+<span class="font-headline-sm text-headline-sm text-center text-on-surface group-hover:text-inverse-surface transition-colors">A few chords</span>
+<div class="absolute top-4 right-4 opacity-0 peer-checked:opacity-100 transition-opacity text-primary-container">
+<span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+</div>
+</div>
+</label>
+<label class="group relative cursor-pointer block h-full">
+<input class="peer sr-only" name="experience" type="radio" value="chords_strumming"/>
+<div class="glass-card h-full rounded-xl border border-outline-variant/30 p-8 flex flex-col items-center justify-center gap-6 transition-all duration-300 peer-checked:border-primary-container peer-checked:bg-surface-container-highest/80 peer-checked:shadow-[inset_0_0_40px_rgba(0,245,160,0.05),0_0_20px_rgba(0,245,160,0.1)] hover:border-outline relative overflow-hidden">
+<div class="absolute top-0 inset-x-0 h-[1px] bg-gradient-to-r from-transparent via-white/10 to-transparent"></div>
+<div class="w-16 h-16 rounded-full bg-surface-container flex items-center justify-center group-hover:scale-110 transition-transform duration-500 peer-checked:bg-primary-container/20 peer-checked:text-primary-container text-on-surface-variant">
+<span class="material-symbols-outlined text-[32px] transition-colors" style="font-variation-settings: 'FILL' 0;">library_music</span>
+</div>
+<span class="font-headline-sm text-headline-sm text-center text-on-surface group-hover:text-inverse-surface transition-colors">Chords + basic strumming</span>
+<div class="absolute top-4 right-4 opacity-0 peer-checked:opacity-100 transition-opacity text-primary-container">
+<span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+</div>
+</div>
+</label>
+<label class="group relative cursor-pointer block h-full">
+<input class="peer sr-only" name="experience" type="radio" value="complete_songs"/>
+<div class="glass-card h-full rounded-xl border border-outline-variant/30 p-8 flex flex-col items-center justify-center gap-6 transition-all duration-300 peer-checked:border-primary-container peer-checked:bg-surface-container-highest/80 peer-checked:shadow-[inset_0_0_40px_rgba(0,245,160,0.05),0_0_20px_rgba(0,245,160,0.1)] hover:border-outline relative overflow-hidden">
+<div class="absolute top-0 inset-x-0 h-[1px] bg-gradient-to-r from-transparent via-white/10 to-transparent"></div>
+<div class="w-16 h-16 rounded-full bg-surface-container flex items-center justify-center group-hover:scale-110 transition-transform duration-500 peer-checked:bg-primary-container/20 peer-checked:text-primary-container text-on-surface-variant">
+<span class="material-symbols-outlined text-[32px] transition-colors" style="font-variation-settings: 'FILL' 0;">star</span>
+</div>
+<span class="font-headline-sm text-headline-sm text-center text-on-surface group-hover:text-inverse-surface transition-colors">I can already play complete songs</span>
+<div class="absolute top-4 right-4 opacity-0 peer-checked:opacity-100 transition-opacity text-primary-container">
+<span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+</div>
+</div>
+</label>
+</div>
+</div>
+</main>
+<footer class="w-full bg-gradient-to-t from-surface to-transparent pt-12 pb-8 px-container-padding-mobile md:px-container-padding-desktop fixed bottom-0 left-0 z-20">
+<div class="max-w-4xl mx-auto flex items-center justify-between gap-4">
+<button class="flex items-center justify-center gap-2 h-14 px-8 rounded-full border-[1.5px] border-secondary text-secondary font-label-caps text-label-caps tracking-widest uppercase bloom-shadow-secondary transition-all duration-300 bg-surface/50 backdrop-blur-sm">
+<span class="material-symbols-outlined text-[18px]">arrow_back</span>
+                Back
+            </button>
+<button class="flex items-center justify-center gap-2 h-14 px-10 rounded-full bg-gradient-to-r from-primary-container to-primary text-on-primary-container font-label-caps text-label-caps tracking-widest uppercase bloom-shadow-primary hover:scale-[1.02] active:scale-[0.98] transition-all duration-300">
+                Next
+                <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+</button>
+</div>
+</footer>
+<div class="h-32"></div>
+</body></html>

@@ -1,0 +1,30 @@
+# Virtual environments
+venv/
+env/
+__pycache__/
+*.pyc
+
+# Node
+node_modules/
+dist/
+dist-ssr/
+
+# Environment files
+.env
+.env.local
+.env.production
+.env.test
+credentials.json
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+
+# Editor directories and files
+.vscode/
+.idea/
+.DS_Store
+
+# Misc
+.vercel/

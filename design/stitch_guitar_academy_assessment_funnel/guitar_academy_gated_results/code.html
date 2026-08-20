@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Guitar Academy - Your Results</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;600&amp;family=Montserrat:wght@400;700;900&amp;family=Playfair+Display:wght@600;700&amp;family=Space+Grotesk:wght@700&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+  tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        "colors": {
+                "outline": "#849588",
+                "surface-variant": "#303635",
+                "primary-fixed": "#50ffaf",
+                "secondary-fixed-dim": "#ffb956",
+                "surface-container": "#1b2120",
+                "background": "#0f1513",
+                "on-secondary-container": "#3d2500",
+                "surface-dim": "#0f1513",
+                "inverse-surface": "#dee4e1",
+                "on-primary-fixed-variant": "#005232",
+                "on-tertiary-fixed-variant": "#394a46",
+                "surface-container-low": "#171d1c",
+                "on-secondary-fixed-variant": "#633f00",
+                "tertiary-fixed-dim": "#b7cbc5",
+                "on-primary-fixed": "#002111",
+                "surface-container-highest": "#303635",
+                "surface-bright": "#343a39",
+                "on-secondary": "#452b00",
+                "on-error-container": "#ffdad6",
+                "on-error": "#690005",
+                "primary": "#cdffde",
+                "on-primary-container": "#006b43",
+                "surface-container-lowest": "#090f0e",
+                "on-background": "#dee4e1",
+                "inverse-on-surface": "#2b3230",
+                "primary-container": "#00f5a0",
+                "outline-variant": "#3b4a40",
+                "on-tertiary": "#233430",
+                "secondary-container": "#c58311",
+                "on-tertiary-fixed": "#0e1f1c",
+                "on-tertiary-container": "#4f615d",
+                "secondary-fixed": "#ffddb5",
+                "on-primary": "#003921",
+                "primary-fixed-dim": "#00e293",
+                "on-secondary-fixed": "#2a1800",
+                "surface": "#0f1513",
+                "tertiary-fixed": "#d3e7e1",
+                "tertiary-container": "#c8dbd6",
+                "error": "#ffb4ab",
+                "surface-tint": "#00e293",
+                "secondary": "#ffb956",
+                "on-surface": "#dee4e1",
+                "surface-container-high": "#252b2a",
+                "tertiary": "#e4f8f2",
+                "on-surface-variant": "#b9cbbd",
+                "inverse-primary": "#006c44",
+                "error-container": "#93000a"
+        },
+        "borderRadius": {
+                "DEFAULT": "0.25rem",
+                "lg": "0.5rem",
+                "xl": "0.75rem",
+                "full": "9999px"
+        },
+        "spacing": {
+                "unit": "8px",
+                "container-padding-mobile": "20px",
+                "container-padding-desktop": "48px",
+                "gutter": "24px",
+                "section-gap": "80px",
+                "margin-mobile": "20px",
+                "stack-sm": "12px",
+                "stack-md": "24px",
+                "stack-lg": "48px",
+                "container-max": "1200px"
+        },
+        "fontFamily": {
+                "headline-sm": [
+                        "Montserrat"
+                ],
+                "body-lg": [
+                        "Be Vietnam Pro"
+                ],
+                "label-caps": [
+                        "Space Grotesk"
+                ],
+                "headline-md": [
+                        "Montserrat"
+                ],
+                "display-lg": [
+                        "Montserrat"
+                ],
+                "display-lg-mobile": [
+                        "Montserrat"
+                ],
+                "body-md": [
+                        "Be Vietnam Pro"
+                ],
+                "playfair": ["Playfair Display", "serif"]
+        },
+        "fontSize": {
+                "headline-sm": [
+                        "24px",
+                        {
+                                "lineHeight": "1.4",
+                                "fontWeight": "700"
+                        }
+                ],
+                "body-lg": [
+                        "18px",
+                        {
+                                "lineHeight": "1.6",
+                                "fontWeight": "400"
+                        }
+                ],
+                "label-caps": [
+                        "12px",
+                        {
+                                "lineHeight": "1",
+                                "letterSpacing": "0.1em",
+                                "fontWeight": "700"
+                        }
+                ],
+                "headline-md": [
+                        "32px",
+                        {
+                                "lineHeight": "1.3",
+                                "fontWeight": "700"
+                        }
+                ],
+                "display-lg": [
+                        "64px",
+                        {
+                                "lineHeight": "1.1",
+                                "letterSpacing": "-0.02em",
+                                "fontWeight": "900"
+                        }
+                ],
+                "display-lg-mobile": [
+                        "36px",
+                        {
+                                "lineHeight": "1.2",
+                                "fontWeight": "900"
+                        }
+                ],
+                "body-md": [
+                        "16px",
+                        {
+                                "lineHeight": "1.6",
+                                "fontWeight": "400"
+                        }
+                ],
+                "button": ["16px", { "lineHeight": "1", "letterSpacing": "0.02em", "fontWeight": "600" }],
+                "label-md": ["14px", { "lineHeight": "1", "letterSpacing": "0.05em", "fontWeight": "600" }]
+        }
+},
+    },
+  }
+</script>
+<style>
+        .marquee-container {
+            overflow: hidden;
+            white-space: nowrap;
+            position: relative;
+        }
+        .marquee-content {
+            display: inline-flex;
+            animation: marquee 30s linear infinite;
+        }
+        @keyframes marquee {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+        .soft-shadow {
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4), inset 0 1px 1px rgba(255, 255, 255, 0.05);
+        }
+        .btn-hover-lift {
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+        .btn-hover-lift:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(255, 185, 86, 0.3);
+        }
+        .neon-glow-text {
+            text-shadow: 0 0 10px rgba(0, 245, 160, 0.6), 0 0 20px rgba(0, 245, 160, 0.4);
+        }
+        .neon-glow-icon {
+            filter: drop-shadow(0 0 8px rgba(0, 245, 160, 0.8));
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+<body class="bg-background text-on-background min-h-screen flex flex-col font-body-md antialiased selection:bg-primary-container selection:text-on-primary-container">
+<!-- Progress Bar (Contextual/Funnel) -->
+<div class="w-full h-1 bg-surface-variant fixed top-0 z-[60]">
+<div class="h-full bg-primary-container w-full transition-all duration-1000 ease-in-out"></div>
+</div>
+<!-- TopAppBar -->
+<header class="bg-surface/80 backdrop-blur-md docked full-width top-0 sticky z-50 flex justify-between items-center w-full px-margin-mobile md:px-gutter max-w-container-max mx-auto h-16 border-b border-surface-variant">
+<button aria-label="Go back" class="text-primary hover:text-primary-container transition-colors">
+<span class="material-symbols-outlined" data-icon="arrow_back" style="font-variation-settings: 'FILL' 0;">arrow_back</span>
+</button>
+<h1 class="font-headline-md text-[20px] font-bold tracking-tight text-primary">GUITAR ACADEMY</h1>
+<button aria-label="Menu" class="text-primary hover:text-primary-container transition-colors">
+<span class="material-symbols-outlined" data-icon="menu" style="font-variation-settings: 'FILL' 0;">menu</span>
+</button>
+</header>
+<main class="flex-grow flex flex-col items-center w-full px-margin-mobile py-stack-lg max-w-[600px] mx-auto relative z-10">
+<!-- Result Reveal Section -->
+<section class="w-full mb-stack-lg animate-[fadeInUp_0.8s_ease-out]">
+<div class="bg-surface-container-low p-stack-md rounded-2xl soft-shadow text-center mb-stack-md border border-outline-variant/30">
+<span class="font-label-caps text-label-caps text-primary-container uppercase tracking-widest mb-2 block">Your Playing Profile</span>
+<h2 class="font-playfair text-display-lg-mobile md:text-display-lg text-primary-container mb-stack-sm neon-glow-text font-bold italic">The Solo Explorer</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant">You have a natural ear for melody and a strong rhythmic foundation. Your path focuses on fingerstyle mastery and creative improvisation.</p>
+</div>
+<!-- Profile Image / Vibe -->
+<div class="w-full h-64 md:h-80 rounded-2xl overflow-hidden mb-stack-md soft-shadow relative border border-outline-variant/20">
+<div class="bg-cover bg-center w-full h-full absolute inset-0 mix-blend-luminosity opacity-80" data-alt="A warm, intimate photograph of a high-quality acoustic guitar resting on a vintage leather chair in a sunlit studio. The lighting is golden and soft, emphasizing the rich wood grain of the instrument. The background is slightly blurred, showing sheet music and a warm light-mode aesthetic with cream and terracotta accents. The mood is inspiring and deeply personal." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBJvSPPfJYj0Kwprd9dW8bhjhL-KNoL5IhO3VuLh13tvMgXHm0L6-zinnAR11aDrsPgJfLUgzALisVeYlRPrwuTnT3-tHwwvHWRusVIm7-rJKg-wnM1h9U4vclva2JNr5xN4iPJHMIrk71EjmkRGFbyOmnHcrFhKiZoPuJerV1vl_j2ChbjncgFN0osY6jFVCVa-1J916l9hxSLLnHTY9CmN9huPisUsSxIprdHSMDlj0-TeHvjZjCk')"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent"></div>
+</div><div class="w-full mt-stack-lg animate-[fadeInUp_0.8s_ease-out]"><div class="bg-primary-container/10 border border-primary-container/50 rounded-2xl p-stack-md text-center soft-shadow mb-stack-lg"><h3 class="font-headline-md text-headline-md text-primary-container mb-4">Get Your Detailed Result via Email</h3><p class="font-body-md text-on-surface-variant mb-6">We've analyzed your profile. Enter your email to receive your personalized 12-week roadmap and song list.</p><div class="flex flex-col gap-4"><input class="w-full bg-surface-container border border-outline-variant/50 rounded-full px-6 py-4 text-on-background focus:border-primary-container outline-none transition-all" placeholder="Enter your email address" type="email"/><button class="w-full bg-primary-container text-on-primary-container font-button text-button py-4 px-8 rounded-full btn-hover-lift flex items-center justify-center gap-2 shadow-[0_0_20px_rgba(0,245,160,0.3)]">Send My Detailed Roadmap <span class="material-symbols-outlined">mail</span></button></div></div><div class="w-full relative opacity-20 blur-sm pointer-events-none select-none"><div class="h-32 bg-surface-container-low rounded-2xl mb-4"></div><div class="h-64 bg-surface-container-low rounded-2xl"></div><div class="absolute inset-0 bg-gradient-to-t from-background to-transparent"></div></div></div>
+<!-- Milestones & Songs Bento Grid -->
+</section>
+<!-- Conversion Section -->
+<!-- Social Proof Marquee Section -->
+<!-- Student Spotlight -->
+</main>
+<style>
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</body></html>

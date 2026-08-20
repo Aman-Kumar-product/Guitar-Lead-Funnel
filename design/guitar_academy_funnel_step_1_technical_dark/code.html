@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Guitar Academy - Assessment</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&amp;family=Be+Vietnam+Pro:wght@400&amp;family=Space+Grotesk:wght@700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+  tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        "colors": {
+                "outline": "#849588",
+                "surface-variant": "#303635",
+                "primary-fixed": "#50ffaf",
+                "secondary-fixed-dim": "#ffb956",
+                "surface-container": "#1b2120",
+                "background": "#0f1513",
+                "on-secondary-container": "#3d2500",
+                "surface-dim": "#0f1513",
+                "inverse-surface": "#dee4e1",
+                "on-primary-fixed-variant": "#005232",
+                "on-tertiary-fixed-variant": "#394a46",
+                "surface-container-low": "#171d1c",
+                "on-secondary-fixed-variant": "#633f00",
+                "tertiary-fixed-dim": "#b7cbc5",
+                "on-primary-fixed": "#002111",
+                "surface-container-highest": "#303635",
+                "surface-bright": "#343a39",
+                "on-secondary": "#452b00",
+                "on-error-container": "#ffdad6",
+                "on-error": "#690005",
+                "primary": "#cdffde",
+                "on-primary-container": "#006b43",
+                "surface-container-lowest": "#090f0e",
+                "on-background": "#dee4e1",
+                "inverse-on-surface": "#2b3230",
+                "primary-container": "#00f5a0",
+                "outline-variant": "#3b4a40",
+                "on-tertiary": "#233430",
+                "secondary-container": "#c58311",
+                "on-tertiary-fixed": "#0e1f1c",
+                "on-tertiary-container": "#4f615d",
+                "secondary-fixed": "#ffddb5",
+                "on-primary": "#003921",
+                "primary-fixed-dim": "#00e293",
+                "on-secondary-fixed": "#2a1800",
+                "surface": "#0f1513",
+                "tertiary-fixed": "#d3e7e1",
+                "tertiary-container": "#c8dbd6",
+                "error": "#ffb4ab",
+                "surface-tint": "#00e293",
+                "secondary": "#ffb956",
+                "on-surface": "#dee4e1",
+                "surface-container-high": "#252b2a",
+                "tertiary": "#e4f8f2",
+                "on-surface-variant": "#b9cbbd",
+                "inverse-primary": "#006c44",
+                "error-container": "#93000a"
+        },
+        "borderRadius": {
+                "DEFAULT": "0.25rem",
+                "lg": "0.5rem",
+                "xl": "0.75rem",
+                "full": "9999px"
+        },
+        "spacing": {
+                "unit": "8px",
+                "container-padding-mobile": "20px",
+                "container-padding-desktop": "48px",
+                "gutter": "24px",
+                "section-gap": "80px",
+                "margin-mobile": "20px",
+                "stack-sm": "12px",
+                "stack-md": "24px",
+                "stack-lg": "48px",
+                "container-max": "1200px"
+        },
+        "fontFamily": {
+                "headline-sm": [
+                        "Montserrat"
+                ],
+                "body-lg": [
+                        "Be Vietnam Pro"
+                ],
+                "label-caps": [
+                        "Space Grotesk"
+                ],
+                "headline-md": [
+                        "Montserrat"
+                ],
+                "display-lg": [
+                        "Montserrat"
+                ],
+                "display-lg-mobile": [
+                        "Montserrat"
+                ],
+                "body-md": [
+                        "Be Vietnam Pro"
+                ]
+        },
+        "fontSize": {
+                "headline-sm": [
+                        "24px",
+                        {
+                                "lineHeight": "1.4",
+                                "fontWeight": "700"
+                        }
+                ],
+                "body-lg": [
+                        "18px",
+                        {
+                                "lineHeight": "1.6",
+                                "fontWeight": "400"
+                        }
+                ],
+                "label-caps": [
+                        "12px",
+                        {
+                                "lineHeight": "1",
+                                "letterSpacing": "0.1em",
+                                "fontWeight": "700"
+                        }
+                ],
+                "headline-md": [
+                        "32px",
+                        {
+                                "lineHeight": "1.3",
+                                "fontWeight": "700"
+                        }
+                ],
+                "display-lg": [
+                        "64px",
+                        {
+                                "lineHeight": "1.1",
+                                "letterSpacing": "-0.02em",
+                                "fontWeight": "900"
+                        }
+                ],
+                "display-lg-mobile": [
+                        "36px",
+                        {
+                                "lineHeight": "1.2",
+                                "fontWeight": "900"
+                        }
+                ],
+                "body-md": [
+                        "16px",
+                        {
+                                "lineHeight": "1.6",
+                                "fontWeight": "400"
+                        }
+                ]
+        }
+},
+    },
+  }
+</script>
+<style>
+        .shadow-ambient {
+            box-shadow: 0 20px 40px -10px rgba(0, 245, 160, 0.15), 0 10px 20px -5px rgba(0, 245, 160, 0.1);
+        }
+        .shadow-glow {
+            box-shadow: 0 0 20px rgba(0, 245, 160, 0.3);
+        }
+        .shadow-inner-pressed {
+            box-shadow: inset 0 2px 4px 0 rgba(0, 0, 0, 0.5);
+        }
+        .slide-up-enter {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        .slide-up-enter-active {
+            opacity: 1;
+            transform: translateY(0);
+            transition: opacity 500ms ease-out, transform 500ms ease-out;
+        }
+        .slide-out-left {
+            opacity: 0;
+            transform: translateX(-50px);
+            transition: opacity 400ms ease-in, transform 400ms ease-in;
+        }
+        .slide-in-right {
+            opacity: 0;
+            transform: translateX(50px);
+            animation: slideInRight 500ms forwards ease-out;
+        }
+        @keyframes slideInRight {
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+<body class="bg-background text-on-background min-h-screen flex flex-col font-body-md antialiased overflow-x-hidden selection:bg-primary-container selection:text-on-primary-container">
+<!-- TopAppBar JSON execution (Navigation suppressed as this is a linear funnel, but header is kept for branding) -->
+<header class="docked full-width top-0 sticky z-50 bg-background/80 backdrop-blur-md transition-all duration-300 ease-in-out flat no shadows border-b border-surface-variant/50">
+<div class="flex justify-between items-center w-full px-container-padding-mobile md:px-container-padding-desktop max-w-container-max mx-auto h-16">
+<button aria-label="Menu" class="flex items-center justify-center text-on-surface hover:text-primary-container transition-colors">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">music_note</span>
+</button>
+<h1 class="font-headline-md text-headline-md text-primary-container tracking-tight">GUITAR ACADEMY</h1>
+<div class="w-6"></div> <!-- Spacer to center the title -->
+</div>
+</header>
+<main class="flex-grow flex flex-col items-center justify-center px-container-padding-mobile md:px-container-padding-desktop py-stack-lg relative w-full">
+<!-- Entry Hero Section -->
+<section class="w-full max-w-container-max flex flex-col items-center text-center space-y-stack-md relative z-10 transition-all duration-500 slide-up-enter slide-up-enter-active" id="hero-section">
+<div class="max-w-2xl mx-auto space-y-stack-sm">
+<h2 class="font-display-lg-mobile md:font-display-lg text-display-lg-mobile md:text-display-lg text-on-surface">
+                    Discover Your Guitar Learning Profile <span class="inline-block hover:rotate-12 transition-transform duration-300">🎸</span>
+</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-xl mx-auto">
+                    A 2-minute personalized assessment to map your path from scratch to soloist.
+                </p>
+</div>
+<div class="pt-stack-sm pb-stack-sm w-full max-w-md mx-auto">
+<button class="w-full sm:w-auto px-8 py-4 bg-primary-container text-on-primary-container rounded-full font-label-caps text-label-caps shadow-ambient hover:-translate-y-1 hover:shadow-glow transition-all duration-300 active:scale-95 group flex items-center justify-center gap-2 mx-auto uppercase" id="start-btn">
+                    Start Assessment
+                    <span class="material-symbols-outlined group-hover:translate-x-1 transition-transform duration-300" style="font-variation-settings: 'FILL' 0;">arrow_forward</span>
+</button>
+</div>
+<div class="flex items-center justify-center gap-2 text-on-surface-variant/80 font-label-caps text-label-caps mt-stack-md pt-stack-md border-t border-surface-variant/50 w-full max-w-md mx-auto uppercase">
+<span class="material-symbols-outlined text-secondary" style="font-size: 16px; font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-secondary" style="font-size: 16px; font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-secondary" style="font-size: 16px; font-variation-settings: 'FILL' 1;">star</span>
+<span class="mx-2 opacity-50">•</span>
+<span>10+ Years Expert Mentorship</span>
+<span class="mx-2 opacity-50">•</span>
+<span>500+ Students Forged</span>
+</div>
+<!-- Atmospheric background element -->
+<div class="absolute inset-0 -z-10 w-full h-full pointer-events-none overflow-hidden flex items-center justify-center opacity-20">
+<div class="w-[800px] h-[800px] bg-primary-container rounded-full blur-[120px] absolute -top-1/4 -right-1/4 mix-blend-screen opacity-30"></div>
+<div class="w-[600px] h-[600px] bg-secondary-container rounded-full blur-[120px] absolute -bottom-1/4 -left-1/4 mix-blend-screen opacity-20"></div>
+</div>
+</section>
+<!-- Interactive Assessment Section (Hidden initially) -->
+<section class="w-full max-w-[600px] hidden flex-col items-center relative z-10 w-full" id="assessment-section">
+<!-- Progress Bar -->
+<div class="w-full mb-stack-md px-4">
+<div class="flex justify-between items-center mb-2">
+<span class="font-label-caps text-label-caps text-on-surface-variant uppercase">Step 1 of 6</span>
+</div>
+<div class="h-1 w-full bg-surface-variant rounded-full overflow-hidden">
+<div class="h-full bg-primary-container w-1/6 rounded-full transition-all duration-700 ease-out shadow-[0_0_10px_rgba(0,245,160,0.8)]"></div>
+</div>
+</div>
+<!-- Question Card -->
+<div class="w-full bg-surface-container rounded-xl p-stack-md md:p-stack-lg shadow-ambient border border-surface-variant relative w-full">
+<h3 class="font-headline-sm text-headline-sm text-on-surface mb-stack-md text-center">
+                    What's your current experience level?
+                </h3>
+<div class="flex flex-col gap-stack-sm w-full">
+<!-- Option 1 -->
+<button class="assessment-option group relative w-full text-left p-4 md:p-6 rounded-lg border border-surface-variant bg-surface hover:bg-surface-bright transition-all duration-300 hover:-translate-y-0.5 hover:border-primary-container/50 hover:shadow-[0_0_15px_rgba(0,245,160,0.15)] focus:outline-none focus:ring-2 focus:ring-primary-container focus:ring-offset-2 focus:ring-offset-background overflow-hidden flex items-center gap-4">
+<div class="w-10 h-10 rounded-full bg-surface-variant group-hover:bg-primary-container/20 flex items-center justify-center transition-colors duration-300 flex-shrink-0">
+<span class="material-symbols-outlined text-on-surface-variant group-hover:text-primary-container transition-colors duration-300" style="font-variation-settings: 'FILL' 0;">do_not_touch</span>
+</div>
+<span class="font-body-md text-body-md text-on-surface font-medium relative z-10">Never held a guitar</span>
+<div class="absolute inset-0 border-2 border-transparent group-focus:border-primary-container rounded-lg transition-colors duration-300 pointer-events-none"></div>
+</button>
+<!-- Option 2 -->
+<button class="assessment-option group relative w-full text-left p-4 md:p-6 rounded-lg border border-surface-variant bg-surface hover:bg-surface-bright transition-all duration-300 hover:-translate-y-0.5 hover:border-primary-container/50 hover:shadow-[0_0_15px_rgba(0,245,160,0.15)] focus:outline-none focus:ring-2 focus:ring-primary-container focus:ring-offset-2 focus:ring-offset-background overflow-hidden flex items-center gap-4">
+<div class="w-10 h-10 rounded-full bg-surface-variant group-hover:bg-primary-container/20 flex items-center justify-center transition-colors duration-300 flex-shrink-0">
+<span class="material-symbols-outlined text-on-surface-variant group-hover:text-primary-container transition-colors duration-300" style="font-variation-settings: 'FILL' 0;">music_video</span>
+</div>
+<span class="font-body-md text-body-md text-on-surface font-medium relative z-10">Know a few chords</span>
+<div class="absolute inset-0 border-2 border-transparent group-focus:border-primary-container rounded-lg transition-colors duration-300 pointer-events-none"></div>
+</button>
+<!-- Option 3 -->
+<button class="assessment-option group relative w-full text-left p-4 md:p-6 rounded-lg border border-surface-variant bg-surface hover:bg-surface-bright transition-all duration-300 hover:-translate-y-0.5 hover:border-primary-container/50 hover:shadow-[0_0_15px_rgba(0,245,160,0.15)] focus:outline-none focus:ring-2 focus:ring-primary-container focus:ring-offset-2 focus:ring-offset-background overflow-hidden flex items-center gap-4">
+<div class="w-10 h-10 rounded-full bg-surface-variant group-hover:bg-primary-container/20 flex items-center justify-center transition-colors duration-300 flex-shrink-0">
+<span class="material-symbols-outlined text-on-surface-variant group-hover:text-primary-container transition-colors duration-300" style="font-variation-settings: 'FILL' 0;">school</span>
+</div>
+<span class="font-body-md text-body-md text-on-surface font-medium relative z-10">Self-taught / Intermediate</span>
+<div class="absolute inset-0 border-2 border-transparent group-focus:border-primary-container rounded-lg transition-colors duration-300 pointer-events-none"></div>
+</button>
+<!-- Option 4 -->
+<button class="assessment-option group relative w-full text-left p-4 md:p-6 rounded-lg border border-surface-variant bg-surface hover:bg-surface-bright transition-all duration-300 hover:-translate-y-0.5 hover:border-primary-container/50 hover:shadow-[0_0_15px_rgba(0,245,160,0.15)] focus:outline-none focus:ring-2 focus:ring-primary-container focus:ring-offset-2 focus:ring-offset-background overflow-hidden flex items-center gap-4">
+<div class="w-10 h-10 rounded-full bg-surface-variant group-hover:bg-primary-container/20 flex items-center justify-center transition-colors duration-300 flex-shrink-0">
+<span class="material-symbols-outlined text-on-surface-variant group-hover:text-primary-container transition-colors duration-300" style="font-variation-settings: 'FILL' 0;">history</span>
+</div>
+<span class="font-body-md text-body-md text-on-surface font-medium relative z-10">Returning after a long break</span>
+<div class="absolute inset-0 border-2 border-transparent group-focus:border-primary-container rounded-lg transition-colors duration-300 pointer-events-none"></div>
+</button>
+</div>
+<div class="mt-stack-md pt-stack-sm flex justify-center">
+<button class="text-on-surface-variant hover:text-primary-container transition-colors font-label-caps text-label-caps flex items-center gap-1 opacity-80 hover:opacity-100 uppercase tracking-widest">
+<span class="material-symbols-outlined" style="font-size: 16px; font-variation-settings: 'FILL' 0;">arrow_back</span>
+                        Back
+                    </button>
+</div>
+</div>
+</section>
+</main>
+<script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const startBtn = document.getElementById('start-btn');
+            const heroSection = document.getElementById('hero-section');
+            const assessmentSection = document.getElementById('assessment-section');
+            const options = document.querySelectorAll('.assessment-option');
+
+            // Transition from Hero to Assessment
+            startBtn.addEventListener('click', () => {
+                heroSection.classList.add('slide-out-left');
+                
+                setTimeout(() => {
+                    heroSection.classList.add('hidden');
+                    assessmentSection.classList.remove('hidden');
+                    assessmentSection.classList.add('flex');
+                    // Small delay to allow display flex to apply before animation
+                    requestAnimationFrame(() => {
+                        assessmentSection.classList.add('slide-in-right');
+                    });
+                }, 400); // Matches CSS transition duration
+            });
+
+            // Handle option selection styling
+            options.forEach(option => {
+                option.addEventListener('click', function() {
+                    // Reset all
+                    options.forEach(opt => {
+                        opt.classList.remove('border-primary-container', 'bg-surface-bright', 'shadow-[0_0_15px_rgba(0,245,160,0.15)]');
+                        opt.classList.add('border-surface-variant', 'bg-surface');
+                        opt.querySelector('.material-symbols-outlined').classList.remove('text-primary-container');
+                        opt.querySelector('.material-symbols-outlined').classList.add('text-on-surface-variant');
+                        opt.querySelector('.w-10').classList.remove('bg-primary-container/20');
+                        opt.querySelector('.w-10').classList.add('bg-surface-variant');
+                    });
+
+                    // Set active
+                    this.classList.remove('border-surface-variant', 'bg-surface');
+                    this.classList.add('border-primary-container', 'bg-surface-bright', 'shadow-[0_0_15px_rgba(0,245,160,0.15)]');
+                    this.querySelector('.material-symbols-outlined').classList.remove('text-on-surface-variant');
+                    this.querySelector('.material-symbols-outlined').classList.add('text-primary-container');
+                    this.querySelector('.w-10').classList.remove('bg-surface-variant');
+                    this.querySelector('.w-10').classList.add('bg-primary-container/20');
+                    
+                    // Optional: auto-advance simulation
+                    // setTimeout(() => { alert('Moving to next question...'); }, 600);
+                });
+            });
+        });
+    </script>
+</body></html>
