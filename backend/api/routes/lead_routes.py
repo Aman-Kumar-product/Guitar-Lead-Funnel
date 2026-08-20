@@ -103,11 +103,14 @@ async def submit_email_lead(request: Request, submission: LeadEmailRequest):
                 selected_songs=getattr(submission, "selected_songs", [])
             )
 
-        # Write to Google Sheets and get the generated lead_id
-        saved_lead_id = append_lead(lead_data, score_details, result_data, email_sent=email_sent, lead_id=lead_id)
-        
-        if not saved_lead_id:
-            print("Warning: Failed to save to Google Sheets.")
+        # Write to Google Sheets
+        append_lead(
+            lead_data=submission.dict(),
+            score_details=score_details,
+            result_data=result_data,
+            email_sent=email_sent,
+            lead_id=lead_id
+        )
 
         return {
             "lead_id": lead_id,

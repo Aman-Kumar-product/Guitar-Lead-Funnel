@@ -35,11 +35,24 @@ def get_available_slots(days=7):
     Returns available time slots for the next `days` days.
     For MVP, we generate some standard business hour slots and remove ones that conflict with existing events.
     """
+    def get_fallback_slots():
+        now = datetime.now()
+        slots = []
+        days_added = 0
+        current_day = now
+        while len(slots) < 3:
+            current_day += timedelta(days=1)
+            if current_day.weekday() < 5:
+                slot1 = current_day.replace(hour=10, minute=0)
+                slot2 = slot1 + timedelta(minutes=30)
+                slots.append(f"{slot1.strftime('%A, %b %d at %I:%M %p')} - {slot2.strftime('%I:%M %p')}")
+        return slots
+
     CALENDAR_ID = os.getenv("GOOGLE_CALENDAR_ID")
     service = get_calendar_service()
     if not service or not CALENDAR_ID:
         # Fallback for UI testing
-        return ["Monday 10:00 AM", "Tuesday 2:00 PM", "Thursday 4:30 PM"]
+        return get_fallback_slots()
 
     try:
         timezone_str = os.getenv("TIMEZONE", "Asia/Kolkata")
@@ -92,7 +105,7 @@ def get_available_slots(days=7):
         return available_slots[:6] # Return max 6 slots for UI simplicity
     except Exception as e:
         print(f"Error fetching calendar slots: {e}")
-        return ["Monday 10:00 AM", "Tuesday 2:00 PM", "Thursday 4:30 PM"]
+        return get_fallback_slots()
 
 def create_booking(lead_name, lead_email, lead_phone, time_slot_str):
     """
