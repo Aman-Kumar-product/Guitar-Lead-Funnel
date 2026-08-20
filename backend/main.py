@@ -52,3 +52,7 @@ def read_root():
 @app.get("/health")
 def health_check():
     return {"status": "healthy"}
+
+@app.api_route("/{path_name:path}", methods=["GET", "POST", "PUT", "DELETE"])
+async def catch_all(request: Request, path_name: str):
+    return {"detail": "Not Found", "vercel_path_seen": request.url.path, "raw_path": request.scope.get("raw_path", b"").decode("utf-8")}
