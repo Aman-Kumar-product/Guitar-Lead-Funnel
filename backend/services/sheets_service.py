@@ -20,11 +20,17 @@ HEADERS = [
 ]
 
 def get_sheets_service():
-    if not os.path.exists(CREDENTIALS_FILE):
-        print(f"Warning: {CREDENTIALS_FILE} not found. Sheets integration disabled.")
-        return None
+    creds_json = os.getenv("GOOGLE_CREDENTIALS_JSON")
     try:
-        creds = Credentials.from_service_account_file(CREDENTIALS_FILE, scopes=SCOPES)
+        if creds_json:
+            creds_dict = json.loads(creds_json)
+            creds = Credentials.from_service_account_info(creds_dict, scopes=SCOPES)
+        else:
+            if not os.path.exists(CREDENTIALS_FILE):
+                print(f"Warning: {CREDENTIALS_FILE} not found. Sheets integration disabled.")
+                return None
+            creds = Credentials.from_service_account_file(CREDENTIALS_FILE, scopes=SCOPES)
+        
         service = build('sheets', 'v4', credentials=creds)
         return service
     except Exception as e:

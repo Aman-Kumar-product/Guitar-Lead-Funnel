@@ -81,7 +81,8 @@ async def submit_email_lead(request: Request, submission: LeadEmailRequest):
 
         import uuid
         lead_id = str(uuid.uuid4())
-        booking_link = f"http://localhost:5173/book?lead_id={lead_id}&email={submission.email}"
+        frontend_url = os.getenv("FRONTEND_URL", "http://localhost:5173").rstrip("/")
+        booking_link = f"{frontend_url}/book?lead_id={lead_id}&email={submission.email}"
 
         from services.email_service import send_result_email
         from services.sheets_service import check_if_email_booked
@@ -164,7 +165,8 @@ async def submit_send_results_only(request: Request, submission: SendResultReque
         else:
             attachment_path = os.path.join(base_dir, "assets", "roadmaps", "Intermediate_Roadmap.pdf")
 
-        booking_link = f"http://localhost:5173/book?lead_id={submission.lead_id}&email={submission.email}"
+        frontend_url = os.getenv("FRONTEND_URL", "http://localhost:5173").rstrip("/")
+        booking_link = f"{frontend_url}/book?lead_id={submission.lead_id}&email={submission.email}"
         
         from services.email_service import send_result_email
         email_sent = send_result_email(

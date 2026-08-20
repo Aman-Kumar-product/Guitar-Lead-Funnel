@@ -12,11 +12,18 @@ SCOPES = [
 CREDENTIALS_FILE = os.getenv("GOOGLE_APPLICATION_CREDENTIALS", "credentials.json")
 
 def get_calendar_service():
-    if not os.path.exists(CREDENTIALS_FILE):
-        print(f"Warning: {CREDENTIALS_FILE} not found. Calendar integration disabled.")
-        return None
+    creds_json = os.getenv("GOOGLE_CREDENTIALS_JSON")
     try:
-        creds = Credentials.from_service_account_file(CREDENTIALS_FILE, scopes=SCOPES)
+        if creds_json:
+            import json
+            creds_dict = json.loads(creds_json)
+            creds = Credentials.from_service_account_info(creds_dict, scopes=SCOPES)
+        else:
+            if not os.path.exists(CREDENTIALS_FILE):
+                print(f"Warning: {CREDENTIALS_FILE} not found. Calendar integration disabled.")
+                return None
+            creds = Credentials.from_service_account_file(CREDENTIALS_FILE, scopes=SCOPES)
+        
         service = build('calendar', 'v3', credentials=creds)
         return service
     except Exception as e:
