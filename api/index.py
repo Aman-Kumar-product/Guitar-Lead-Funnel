@@ -2,11 +2,14 @@ try:
     from backend.main import app
 except Exception as e:
     import traceback
-    from fastapi import FastAPI
-    app = FastAPI()
-    
     error_traceback = traceback.format_exc()
     
-    @app.api_route("/{path:path}", methods=["GET", "POST", "PUT", "DELETE"])
-    async def catch_all(path: str):
-        return {"error": "Import Failed", "traceback": error_traceback}
+    from http.server import BaseHTTPRequestHandler
+    class handler(BaseHTTPRequestHandler):
+        def do_GET(self):
+            self.send_response(200)
+            self.send_header('Content-type','text/plain')
+            self.end_headers()
+            self.wfile.write(f"Import Failed:\n\n{error_traceback}".encode('utf-8'))
+            return
+    app = handler
