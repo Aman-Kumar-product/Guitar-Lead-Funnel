@@ -37,7 +37,7 @@ function App() {
       <div className="w-full relative min-h-screen flex flex-col">
         <header className="w-full p-4 md:p-6 z-50 flex justify-center absolute top-0">
           <Link to="/">
-            <img src="/logo.png" alt="Logo" className="h-12 md:h-16 w-auto object-contain drop-shadow-md" />
+            <img src={`${import.meta.env.BASE_URL}logo.png`} alt="Logo" className="h-12 md:h-16 w-auto object-contain drop-shadow-md" />
           </Link>
         </header>
         <div className="flex-grow flex flex-col pt-24 md:pt-28">

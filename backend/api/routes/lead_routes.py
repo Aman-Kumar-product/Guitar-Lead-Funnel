@@ -81,7 +81,7 @@ async def submit_email_lead(request: Request, submission: LeadEmailRequest):
 
         import uuid
         lead_id = str(uuid.uuid4())
-        frontend_url = os.getenv("FRONTEND_URL", "http://localhost:5173").rstrip("/")
+        frontend_url = os.getenv("FRONTEND_URL", "https://guitar-lead-funnel.vercel.app").rstrip("/")
         booking_link = f"{frontend_url}/book?lead_id={lead_id}&email={submission.email}"
 
         from backend.services.email_service import send_result_email
@@ -168,7 +168,7 @@ async def submit_send_results_only(request: Request, submission: SendResultReque
         else:
             attachment_path = os.path.join(base_dir, "assets", "roadmaps", "Intermediate_Roadmap.pdf")
 
-        frontend_url = os.getenv("FRONTEND_URL", "http://localhost:5173").rstrip("/")
+        frontend_url = os.getenv("FRONTEND_URL", "https://guitar-lead-funnel.vercel.app").rstrip("/")
         booking_link = f"{frontend_url}/book?lead_id={submission.lead_id}&email={submission.email}"
         
         from backend.services.email_service import send_result_email

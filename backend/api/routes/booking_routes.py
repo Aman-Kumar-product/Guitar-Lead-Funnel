@@ -90,7 +90,8 @@ async def submit_booking(request: Request, submission: BookingRequest):
                     
                     from backend.services.email_service import send_result_email
                     
-                    booking_link = f"http://localhost:5173/book?lead_id={submission.lead_id}&email={submission.email}"
+                    frontend_url = os.getenv("FRONTEND_URL", "https://guitar-lead-funnel.vercel.app").rstrip("/")
+                    booking_link = f"{frontend_url}/book?lead_id={submission.lead_id}&email={submission.email}"
                     result_email_sent = send_result_email(
                         to_email=submission.email, 
                         result_title=result_data["title"], 
